@@ -154,3 +154,5 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+/AnyRate2CSV/App.config
+/AnyRate2CSV/Properties/Settings.settings
