@@ -37,11 +37,6 @@ namespace AnyRate2CSV
 
     }
 
-    private void pictureBox1_Click(object sender, EventArgs e)
-    {
-
-    }
-
     private void textBox1_TextChanged(object sender, EventArgs e)
     {
 
@@ -73,6 +68,11 @@ namespace AnyRate2CSV
     }
 
     private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+    {
+
+    }
+
+    private void txtPYRCreateQSpreeNum_TextChanged(object sender, EventArgs e)
     {
 
     }
