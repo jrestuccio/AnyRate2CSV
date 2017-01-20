@@ -56,5 +56,25 @@ namespace AnyRate2CSV
     {
 
     }
+
+    private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void pictureBox1_Click_1(object sender, EventArgs e)
+    {
+
+    }
+
+    private void button7_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+    {
+
+    }
   }
 }

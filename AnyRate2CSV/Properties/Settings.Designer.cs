@@ -33,5 +33,17 @@ namespace AnyRate2CSV.Properties {
                 return ((string)(this["ARETHA"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string btnCSVFileOutput {
+            get {
+                return ((string)(this["btnCSVFileOutput"]));
+            }
+            set {
+                this["btnCSVFileOutput"] = value;
+            }
+        }
     }
 }
