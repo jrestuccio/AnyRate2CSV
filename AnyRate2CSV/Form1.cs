@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.IO;
 
 namespace AnyRate2CSV
 {
@@ -26,20 +27,21 @@ namespace AnyRate2CSV
     
     public DataTable GetDataSet(string ConnectionString, string SQL)
     {
-        SqlConnection conn = new SqlConnection(ConnectionString);
-        SqlDataAdapter da = new SqlDataAdapter();
-        SqlCommand cmd = conn.CreateCommand();
-        cmd.CommandText = SQL;
-        da.SelectCommand = cmd;
+      
+      DataTable table = new DataTable();
+      using (var con = new SqlConnection(ConnectionString))
+      using (var cmd = new SqlCommand(SQL, con))
+      using (var da = new SqlDataAdapter(cmd))
+      {
+        MessageBox.Show("test");
+        cmd.CommandType = CommandType.StoredProcedure;
+        da.Fill(table);
+      }
 
-        conn.Open();
-        da.Fill(dt);
-        conn.Close();
-
-        return dt;
+      return table;                
     }
 
-    public static void WriteDataTable(DataTable sourceTable, System.IO.TextWriter writer, bool includeHeaders) 
+    public static void WriteDataTable(DataTable sourceTable, TextWriter writer, bool includeHeaders) 
     {
         if (includeHeaders) {
             IEnumerable<String> headerValues = sourceTable.Columns
@@ -92,7 +94,13 @@ namespace AnyRate2CSV
 
     private void button7_Click(object sender, EventArgs e)
     {
-
+      DialogResult result = folderCSVOutput.ShowDialog();
+      if (result == DialogResult.OK) // Test result.
+      {
+        string fileText = folderCSVOutput.SelectedPath.ToString();
+        txtCSVOutputFile.Text = fileText;
+      }
+      Console.WriteLine(result); // <-- For debugging use.
     }
 
     private void txtPYRCreateQSpreeNum_TextChanged(object sender, EventArgs e)
@@ -187,14 +195,26 @@ namespace AnyRate2CSV
       var LoginCode = txtExtractCSVLoginCode.Text;
       var DaysBack = numUpDnExtractCSVDaysBack.Value;
       var connectionString = ConfigurationManager.ConnectionStrings["AnyRate2CSV.Properties.Settings.ARETHA"].ConnectionString;
-      var sqlQuery = string.Format("usp_PYRExtractRATES '{0}', {1}", LoginCode, DaysBack);
+      var sqlQuery = string.Format("dbo.usp_PYRExtractRATES '{0}', {1}", LoginCode, DaysBack);
       int rowsAffected = 0;
 
       MessageBox.Show(sqlQuery);      
 
       try
       {
-        dt = GetDataSet(connectionString, sqlQuery);        
+        dt = GetDataSet(connectionString, sqlQuery);
+        
+        if (dt != null)
+        {
+          foreach (DataRow dr in dt.Rows)
+          {
+            MessageBox.Show(dr.ToString());
+          }
+        }
+        using (StreamWriter writer = new StreamWriter(txtCSVOutputFile.Text))
+        {
+          WriteDataTable(dt, writer, true);
+        }
       }
       catch (Exception ex)
       {
@@ -224,7 +244,7 @@ namespace AnyRate2CSV
 
     private void txtExtractCSVLoginCode_TextChanged(object sender, EventArgs e)
     {
-      
+      updatetxtFileNameFormat();
     }
 
     private void updatetxtFileNameFormat()
@@ -253,7 +273,7 @@ namespace AnyRate2CSV
 
     private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
     {
-
+      updatetxtFileNameFormat();
     }
 
   }

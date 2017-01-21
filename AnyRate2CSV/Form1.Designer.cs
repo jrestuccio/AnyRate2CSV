@@ -65,6 +65,7 @@
       this.txtStatusWindow = new System.Windows.Forms.TextBox();
       this.label1 = new System.Windows.Forms.Label();
       this.dateTimeExtractCSV = new System.Windows.Forms.DateTimePicker();
+      this.folderCSVOutput = new System.Windows.Forms.FolderBrowserDialog();
       this.groupBox1.SuspendLayout();
       this.grpboxPYRCreateQ.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.numUpDnPYRCreateQDaysBack)).BeginInit();
@@ -369,6 +370,16 @@
       // numUpDnExtractCSVDaysBack
       // 
       this.numUpDnExtractCSVDaysBack.Location = new System.Drawing.Point(264, 44);
+      this.numUpDnExtractCSVDaysBack.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+      this.numUpDnExtractCSVDaysBack.Minimum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            -2147483648});
       this.numUpDnExtractCSVDaysBack.Name = "numUpDnExtractCSVDaysBack";
       this.numUpDnExtractCSVDaysBack.Size = new System.Drawing.Size(36, 20);
       this.numUpDnExtractCSVDaysBack.TabIndex = 14;
@@ -521,6 +532,7 @@
     private System.Windows.Forms.TextBox txtStatusWindow;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.DateTimePicker dateTimeExtractCSV;
+    private System.Windows.Forms.FolderBrowserDialog folderCSVOutput;
   }
 }
 
