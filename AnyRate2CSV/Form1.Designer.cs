@@ -29,11 +29,10 @@
     private void InitializeComponent()
     {
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnyRate2CSV));
-      this.label1 = new System.Windows.Forms.Label();
       this.btnSettings = new System.Windows.Forms.Button();
       this.groupBox1 = new System.Windows.Forms.GroupBox();
-      this.button5 = new System.Windows.Forms.Button();
-      this.button1 = new System.Windows.Forms.Button();
+      this.btnPYSnapQueue = new System.Windows.Forms.Button();
+      this.btnClearV2Queue = new System.Windows.Forms.Button();
       this.btnStartExtractRates = new System.Windows.Forms.Button();
       this.label2 = new System.Windows.Forms.Label();
       this.label3 = new System.Windows.Forms.Label();
@@ -44,14 +43,17 @@
       this.txtPYRCreateQFreshFactor = new System.Windows.Forms.TextBox();
       this.grpboxPYRCreateQ = new System.Windows.Forms.GroupBox();
       this.numUpDnPYRCreateQDaysBack = new System.Windows.Forms.NumericUpDown();
-      this.button2 = new System.Windows.Forms.Button();
+      this.btnStartPYRQueue = new System.Windows.Forms.Button();
       this.grpboxPYRSoldOutPlusOne = new System.Windows.Forms.GroupBox();
       this.btnStartPYRSoldOutPlusOne = new System.Windows.Forms.Button();
       this.txtPYRSoldOutPlusOneSessionID = new System.Windows.Forms.TextBox();
       this.label6 = new System.Windows.Forms.Label();
       this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-      this.picARLogo = new System.Windows.Forms.PictureBox();
       this.grpboxExtractCreateCSV = new System.Windows.Forms.GroupBox();
+      this.radbtnOtherFormat = new System.Windows.Forms.RadioButton();
+      this.radbtnHSDSFormat = new System.Windows.Forms.RadioButton();
+      this.txtFileNameFormat = new System.Windows.Forms.TextBox();
+      this.radbtnPYRFormat = new System.Windows.Forms.RadioButton();
       this.txtCSVOutputFile = new System.Windows.Forms.TextBox();
       this.btnCSVFileOutput = new System.Windows.Forms.Button();
       this.numUpDnExtractCSVDaysBack = new System.Windows.Forms.NumericUpDown();
@@ -59,30 +61,17 @@
       this.lblExtractCSVDaysBack = new System.Windows.Forms.Label();
       this.txtExtractCSVLoginCode = new System.Windows.Forms.TextBox();
       this.lblExtractCSVLoginCode = new System.Windows.Forms.Label();
-      this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+      this.picARLogo = new System.Windows.Forms.PictureBox();
+      this.txtStatusWindow = new System.Windows.Forms.TextBox();
+      this.label1 = new System.Windows.Forms.Label();
       this.groupBox1.SuspendLayout();
       this.grpboxPYRCreateQ.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.numUpDnPYRCreateQDaysBack)).BeginInit();
       this.grpboxPYRSoldOutPlusOne.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.picARLogo)).BeginInit();
       this.grpboxExtractCreateCSV.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.numUpDnExtractCSVDaysBack)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picARLogo)).BeginInit();
       this.SuspendLayout();
-      // 
-      // label1
-      // 
-      this.label1.AutoSize = true;
-      this.label1.BackColor = System.Drawing.Color.White;
-      this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-      this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(130)))), ((int)(((byte)(0)))));
-      this.label1.Location = new System.Drawing.Point(186, 12);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(97, 31);
-      this.label1.TabIndex = 1;
-      this.label1.Text = "2 CSV";
-      this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.label1.Click += new System.EventHandler(this.label1_Click);
       // 
       // btnSettings
       // 
@@ -97,35 +86,36 @@
       // 
       // groupBox1
       // 
-      this.groupBox1.Controls.Add(this.button5);
-      this.groupBox1.Controls.Add(this.button1);
+      this.groupBox1.Controls.Add(this.btnPYSnapQueue);
+      this.groupBox1.Controls.Add(this.btnClearV2Queue);
       this.groupBox1.Controls.Add(this.btnSettings);
-      this.groupBox1.Location = new System.Drawing.Point(371, 12);
+      this.groupBox1.Location = new System.Drawing.Point(214, 12);
       this.groupBox1.Name = "groupBox1";
       this.groupBox1.Size = new System.Drawing.Size(165, 138);
       this.groupBox1.TabIndex = 3;
       this.groupBox1.TabStop = false;
       this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
       // 
-      // button5
+      // btnPYSnapQueue
       // 
-      this.button5.ForeColor = System.Drawing.Color.DarkBlue;
-      this.button5.Location = new System.Drawing.Point(13, 100);
-      this.button5.Name = "button5";
-      this.button5.Size = new System.Drawing.Size(126, 25);
-      this.button5.TabIndex = 6;
-      this.button5.Text = "PYR Snap Queue";
-      this.button5.UseVisualStyleBackColor = true;
+      this.btnPYSnapQueue.ForeColor = System.Drawing.Color.DarkBlue;
+      this.btnPYSnapQueue.Location = new System.Drawing.Point(13, 100);
+      this.btnPYSnapQueue.Name = "btnPYSnapQueue";
+      this.btnPYSnapQueue.Size = new System.Drawing.Size(126, 25);
+      this.btnPYSnapQueue.TabIndex = 6;
+      this.btnPYSnapQueue.Text = "PYR Snap Queue";
+      this.btnPYSnapQueue.UseVisualStyleBackColor = true;
       // 
-      // button1
+      // btnClearV2Queue
       // 
-      this.button1.ForeColor = System.Drawing.Color.DarkBlue;
-      this.button1.Location = new System.Drawing.Point(13, 59);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(126, 25);
-      this.button1.TabIndex = 5;
-      this.button1.Text = "Clear V2 Queue";
-      this.button1.UseVisualStyleBackColor = true;
+      this.btnClearV2Queue.ForeColor = System.Drawing.Color.DarkBlue;
+      this.btnClearV2Queue.Location = new System.Drawing.Point(13, 59);
+      this.btnClearV2Queue.Name = "btnClearV2Queue";
+      this.btnClearV2Queue.Size = new System.Drawing.Size(126, 25);
+      this.btnClearV2Queue.TabIndex = 5;
+      this.btnClearV2Queue.Text = "Clear V2 Queue";
+      this.btnClearV2Queue.UseVisualStyleBackColor = true;
+      this.btnClearV2Queue.Click += new System.EventHandler(this.btnClearV2Queue_Click);
       // 
       // btnStartExtractRates
       // 
@@ -205,7 +195,7 @@
       // grpboxPYRCreateQ
       // 
       this.grpboxPYRCreateQ.Controls.Add(this.numUpDnPYRCreateQDaysBack);
-      this.grpboxPYRCreateQ.Controls.Add(this.button2);
+      this.grpboxPYRCreateQ.Controls.Add(this.btnStartPYRQueue);
       this.grpboxPYRCreateQ.Controls.Add(this.label2);
       this.grpboxPYRCreateQ.Controls.Add(this.label5);
       this.grpboxPYRCreateQ.Controls.Add(this.txtPYRCreateQFreshFactor);
@@ -228,15 +218,16 @@
       this.numUpDnPYRCreateQDaysBack.Size = new System.Drawing.Size(36, 20);
       this.numUpDnPYRCreateQDaysBack.TabIndex = 15;
       // 
-      // button2
+      // btnStartPYRQueue
       // 
-      this.button2.ForeColor = System.Drawing.Color.DarkBlue;
-      this.button2.Location = new System.Drawing.Point(96, 81);
-      this.button2.Name = "button2";
-      this.button2.Size = new System.Drawing.Size(132, 23);
-      this.button2.TabIndex = 13;
-      this.button2.Text = "Start PYR Queue";
-      this.button2.UseVisualStyleBackColor = true;
+      this.btnStartPYRQueue.ForeColor = System.Drawing.Color.DarkBlue;
+      this.btnStartPYRQueue.Location = new System.Drawing.Point(96, 81);
+      this.btnStartPYRQueue.Name = "btnStartPYRQueue";
+      this.btnStartPYRQueue.Size = new System.Drawing.Size(132, 23);
+      this.btnStartPYRQueue.TabIndex = 13;
+      this.btnStartPYRQueue.Text = "Start PYR Queue";
+      this.btnStartPYRQueue.UseVisualStyleBackColor = true;
+      this.btnStartPYRQueue.Click += new System.EventHandler(this.button2_Click);
       // 
       // grpboxPYRSoldOutPlusOne
       // 
@@ -286,18 +277,12 @@
       this.monthCalendar1.Name = "monthCalendar1";
       this.monthCalendar1.TabIndex = 4;
       // 
-      // picARLogo
-      // 
-      this.picARLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picARLogo.BackgroundImage")));
-      this.picARLogo.Location = new System.Drawing.Point(18, 12);
-      this.picARLogo.Name = "picARLogo";
-      this.picARLogo.Size = new System.Drawing.Size(169, 93);
-      this.picARLogo.TabIndex = 16;
-      this.picARLogo.TabStop = false;
-      this.picARLogo.Click += new System.EventHandler(this.pictureBox1_Click_1);
-      // 
       // grpboxExtractCreateCSV
       // 
+      this.grpboxExtractCreateCSV.Controls.Add(this.radbtnOtherFormat);
+      this.grpboxExtractCreateCSV.Controls.Add(this.radbtnHSDSFormat);
+      this.grpboxExtractCreateCSV.Controls.Add(this.txtFileNameFormat);
+      this.grpboxExtractCreateCSV.Controls.Add(this.radbtnPYRFormat);
       this.grpboxExtractCreateCSV.Controls.Add(this.txtCSVOutputFile);
       this.grpboxExtractCreateCSV.Controls.Add(this.btnCSVFileOutput);
       this.grpboxExtractCreateCSV.Controls.Add(this.numUpDnExtractCSVDaysBack);
@@ -307,12 +292,52 @@
       this.grpboxExtractCreateCSV.Controls.Add(this.lblExtractCSVLoginCode);
       this.grpboxExtractCreateCSV.Controls.Add(this.btnStartExtractRates);
       this.grpboxExtractCreateCSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(209)))), ((int)(((byte)(0)))));
-      this.grpboxExtractCreateCSV.Location = new System.Drawing.Point(384, 188);
+      this.grpboxExtractCreateCSV.Location = new System.Drawing.Point(279, 344);
       this.grpboxExtractCreateCSV.Name = "grpboxExtractCreateCSV";
-      this.grpboxExtractCreateCSV.Size = new System.Drawing.Size(410, 523);
+      this.grpboxExtractCreateCSV.Size = new System.Drawing.Size(410, 311);
       this.grpboxExtractCreateCSV.TabIndex = 17;
       this.grpboxExtractCreateCSV.TabStop = false;
       this.grpboxExtractCreateCSV.Text = "Extract and Create CSV";
+      // 
+      // radbtnOtherFormat
+      // 
+      this.radbtnOtherFormat.AutoSize = true;
+      this.radbtnOtherFormat.Location = new System.Drawing.Point(214, 252);
+      this.radbtnOtherFormat.Name = "radbtnOtherFormat";
+      this.radbtnOtherFormat.Size = new System.Drawing.Size(86, 17);
+      this.radbtnOtherFormat.TabIndex = 21;
+      this.radbtnOtherFormat.TabStop = true;
+      this.radbtnOtherFormat.Text = "Other Format";
+      this.radbtnOtherFormat.UseVisualStyleBackColor = true;
+      // 
+      // radbtnHSDSFormat
+      // 
+      this.radbtnHSDSFormat.AutoSize = true;
+      this.radbtnHSDSFormat.Location = new System.Drawing.Point(118, 252);
+      this.radbtnHSDSFormat.Name = "radbtnHSDSFormat";
+      this.radbtnHSDSFormat.Size = new System.Drawing.Size(90, 17);
+      this.radbtnHSDSFormat.TabIndex = 20;
+      this.radbtnHSDSFormat.TabStop = true;
+      this.radbtnHSDSFormat.Text = "HSDS Format";
+      this.radbtnHSDSFormat.UseVisualStyleBackColor = true;
+      // 
+      // txtFileNameFormat
+      // 
+      this.txtFileNameFormat.Location = new System.Drawing.Point(24, 275);
+      this.txtFileNameFormat.Name = "txtFileNameFormat";
+      this.txtFileNameFormat.Size = new System.Drawing.Size(363, 20);
+      this.txtFileNameFormat.TabIndex = 19;
+      // 
+      // radbtnPYRFormat
+      // 
+      this.radbtnPYRFormat.AutoSize = true;
+      this.radbtnPYRFormat.Location = new System.Drawing.Point(27, 252);
+      this.radbtnPYRFormat.Name = "radbtnPYRFormat";
+      this.radbtnPYRFormat.Size = new System.Drawing.Size(82, 17);
+      this.radbtnPYRFormat.TabIndex = 18;
+      this.radbtnPYRFormat.TabStop = true;
+      this.radbtnPYRFormat.Text = "PYR Format";
+      this.radbtnPYRFormat.UseVisualStyleBackColor = true;
       // 
       // txtCSVOutputFile
       // 
@@ -324,11 +349,13 @@
       // btnCSVFileOutput
       // 
       this.btnCSVFileOutput.ForeColor = System.Drawing.Color.DarkBlue;
+      this.btnCSVFileOutput.Image = global::AnyRate2CSV.Properties.Resources.business_folder_icon__Custom___3_;
       this.btnCSVFileOutput.Location = new System.Drawing.Point(20, 184);
       this.btnCSVFileOutput.Name = "btnCSVFileOutput";
       this.btnCSVFileOutput.Size = new System.Drawing.Size(173, 25);
       this.btnCSVFileOutput.TabIndex = 16;
       this.btnCSVFileOutput.Text = "CSV Output File Location";
+      this.btnCSVFileOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.btnCSVFileOutput.UseVisualStyleBackColor = true;
       this.btnCSVFileOutput.Click += new System.EventHandler(this.button7_Click);
       // 
@@ -377,24 +404,48 @@
       this.lblExtractCSVLoginCode.TabIndex = 10;
       this.lblExtractCSVLoginCode.Text = "Login Code";
       // 
-      // folderBrowserDialog1
+      // picARLogo
       // 
-      this.folderBrowserDialog1.SelectedPath = global::AnyRate2CSV.Properties.Settings.Default.btnCSVFileOutput;
-      this.folderBrowserDialog1.HelpRequest += new System.EventHandler(this.folderBrowserDialog1_HelpRequest);
+      this.picARLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picARLogo.BackgroundImage")));
+      this.picARLogo.Location = new System.Drawing.Point(18, 12);
+      this.picARLogo.Name = "picARLogo";
+      this.picARLogo.Size = new System.Drawing.Size(169, 93);
+      this.picARLogo.TabIndex = 16;
+      this.picARLogo.TabStop = false;
+      this.picARLogo.Click += new System.EventHandler(this.pictureBox1_Click_1);
+      // 
+      // txtStatusWindow
+      // 
+      this.txtStatusWindow.Location = new System.Drawing.Point(746, 34);
+      this.txtStatusWindow.Multiline = true;
+      this.txtStatusWindow.Name = "txtStatusWindow";
+      this.txtStatusWindow.Size = new System.Drawing.Size(583, 677);
+      this.txtStatusWindow.TabIndex = 22;
+      // 
+      // label1
+      // 
+      this.label1.AutoSize = true;
+      this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(130)))), ((int)(((byte)(0)))));
+      this.label1.Location = new System.Drawing.Point(743, 18);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(79, 13);
+      this.label1.TabIndex = 23;
+      this.label1.Text = "Status Window";
       // 
       // AnyRate2CSV
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.DarkGreen;
-      this.ClientSize = new System.Drawing.Size(928, 735);
+      this.ClientSize = new System.Drawing.Size(1341, 735);
+      this.Controls.Add(this.label1);
       this.Controls.Add(this.grpboxExtractCreateCSV);
+      this.Controls.Add(this.txtStatusWindow);
       this.Controls.Add(this.picARLogo);
       this.Controls.Add(this.grpboxPYRSoldOutPlusOne);
       this.Controls.Add(this.grpboxPYRCreateQ);
       this.Controls.Add(this.monthCalendar1);
       this.Controls.Add(this.groupBox1);
-      this.Controls.Add(this.label1);
       this.ForeColor = System.Drawing.Color.CornflowerBlue;
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
       this.Name = "AnyRate2CSV";
@@ -406,10 +457,10 @@
       ((System.ComponentModel.ISupportInitialize)(this.numUpDnPYRCreateQDaysBack)).EndInit();
       this.grpboxPYRSoldOutPlusOne.ResumeLayout(false);
       this.grpboxPYRSoldOutPlusOne.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.picARLogo)).EndInit();
       this.grpboxExtractCreateCSV.ResumeLayout(false);
       this.grpboxExtractCreateCSV.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.numUpDnExtractCSVDaysBack)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picARLogo)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -417,11 +468,10 @@
 
     #endregion
 
-    private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Button btnSettings;
     private System.Windows.Forms.GroupBox groupBox1;
     private System.Windows.Forms.Button btnStartExtractRates;
-    private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Button btnClearV2Queue;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.TextBox txtPYRCreateQSpreeNum;
@@ -430,14 +480,14 @@
     private System.Windows.Forms.Label label5;
     private System.Windows.Forms.TextBox txtPYRCreateQFreshFactor;
     private System.Windows.Forms.GroupBox grpboxPYRCreateQ;
-    private System.Windows.Forms.Button button2;
+    private System.Windows.Forms.Button btnStartPYRQueue;
     private System.Windows.Forms.GroupBox grpboxPYRSoldOutPlusOne;
     private System.Windows.Forms.TextBox txtPYRSoldOutPlusOneSessionID;
     private System.Windows.Forms.Label label6;
     private System.Windows.Forms.Button btnStartPYRSoldOutPlusOne;
     private System.Windows.Forms.MonthCalendar monthCalendar1;
     private System.Windows.Forms.PictureBox picARLogo;
-    private System.Windows.Forms.Button button5;
+    private System.Windows.Forms.Button btnPYSnapQueue;
     private System.Windows.Forms.NumericUpDown numUpDnPYRCreateQDaysBack;
     private System.Windows.Forms.GroupBox grpboxExtractCreateCSV;
     private System.Windows.Forms.NumericUpDown numUpDnExtractCSVDaysBack;
@@ -447,7 +497,12 @@
     private System.Windows.Forms.Label lblExtractCSVLoginCode;
     private System.Windows.Forms.Button btnCSVFileOutput;
     private System.Windows.Forms.TextBox txtCSVOutputFile;
-    private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+    private System.Windows.Forms.RadioButton radbtnOtherFormat;
+    private System.Windows.Forms.RadioButton radbtnHSDSFormat;
+    private System.Windows.Forms.TextBox txtFileNameFormat;
+    private System.Windows.Forms.RadioButton radbtnPYRFormat;
+    private System.Windows.Forms.TextBox txtStatusWindow;
+    private System.Windows.Forms.Label label1;
   }
 }
 
