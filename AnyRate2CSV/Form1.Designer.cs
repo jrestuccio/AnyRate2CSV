@@ -66,6 +66,7 @@
       this.label1 = new System.Windows.Forms.Label();
       this.dateTimeExtractCSV = new System.Windows.Forms.DateTimePicker();
       this.folderCSVOutput = new System.Windows.Forms.FolderBrowserDialog();
+      this.lblReportDateExtractCSV = new System.Windows.Forms.Label();
       this.groupBox1.SuspendLayout();
       this.grpboxPYRCreateQ.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.numUpDnPYRCreateQDaysBack)).BeginInit();
@@ -283,6 +284,7 @@
       // 
       // grpboxExtractCreateCSV
       // 
+      this.grpboxExtractCreateCSV.Controls.Add(this.lblReportDateExtractCSV);
       this.grpboxExtractCreateCSV.Controls.Add(this.dateTimeExtractCSV);
       this.grpboxExtractCreateCSV.Controls.Add(this.radbtnOtherFormat);
       this.grpboxExtractCreateCSV.Controls.Add(this.txtCSVOutputFile);
@@ -454,11 +456,25 @@
       // dateTimeExtractCSV
       // 
       this.dateTimeExtractCSV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-      this.dateTimeExtractCSV.Location = new System.Drawing.Point(20, 87);
+      this.dateTimeExtractCSV.Location = new System.Drawing.Point(20, 95);
       this.dateTimeExtractCSV.Name = "dateTimeExtractCSV";
       this.dateTimeExtractCSV.Size = new System.Drawing.Size(200, 20);
       this.dateTimeExtractCSV.TabIndex = 22;
       this.dateTimeExtractCSV.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+      // 
+      // folderCSVOutput
+      // 
+      this.folderCSVOutput.HelpRequest += new System.EventHandler(this.folderCSVOutput_HelpRequest);
+      // 
+      // lblReportDateExtractCSV
+      // 
+      this.lblReportDateExtractCSV.AutoSize = true;
+      this.lblReportDateExtractCSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(130)))), ((int)(((byte)(0)))));
+      this.lblReportDateExtractCSV.Location = new System.Drawing.Point(20, 79);
+      this.lblReportDateExtractCSV.Name = "lblReportDateExtractCSV";
+      this.lblReportDateExtractCSV.Size = new System.Drawing.Size(65, 13);
+      this.lblReportDateExtractCSV.TabIndex = 23;
+      this.lblReportDateExtractCSV.Text = "Report Date";
       // 
       // AnyRate2CSV
       // 
@@ -533,6 +549,7 @@
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.DateTimePicker dateTimeExtractCSV;
     private System.Windows.Forms.FolderBrowserDialog folderCSVOutput;
+    private System.Windows.Forms.Label lblReportDateExtractCSV;
   }
 }
 
