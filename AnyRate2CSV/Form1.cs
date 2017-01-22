@@ -18,7 +18,9 @@ namespace AnyRate2CSV
 
     SqlDataAdapter sda;
     SqlCommandBuilder sb;
-    DataTable dt;    
+    DataTable dt;
+    String connectionString = ConfigurationManager.ConnectionStrings["AnyRate2CSV.Properties.Settings.ARETHA"].ConnectionString;
+
 
     public AnyRate2CSV()
     {
@@ -29,7 +31,7 @@ namespace AnyRate2CSV
     private int SQLToCSV(string query, string Filename)
     {
 
-      SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AnyRate2CSV.Properties.Settings.ARETHA"].ConnectionString);
+      SqlConnection conn = new SqlConnection(connectionString);
       conn.Open();
       SqlCommand cmd = new SqlCommand(query, conn);
       SqlDataReader dr = cmd.ExecuteReader();
@@ -117,8 +119,7 @@ namespace AnyRate2CSV
 
     private void button2_Click(object sender, EventArgs e)
     {
-
-      var connectionString = ConfigurationManager.ConnectionStrings["AnyRate2CSV.Properties.Settings.ARETHA"].ConnectionString;
+      
       SqlConnection con = new SqlConnection(connectionString);
       var spreeNumber = txtPYRCreateQSpreeNum.Text;
       var daysBack = numUpDnPYRCreateQDaysBack.Value;
@@ -146,8 +147,7 @@ namespace AnyRate2CSV
     }
 
     private void btnClearV2Queue_Click(object sender, EventArgs e)
-    {
-      var connectionString = ConfigurationManager.ConnectionStrings["AnyRate2CSV.Properties.Settings.ARETHA"].ConnectionString;      
+    {      
       SqlConnection con = new SqlConnection(connectionString);
       int rowsAffected = 0;
 
@@ -172,8 +172,7 @@ namespace AnyRate2CSV
     }
 
     private void btnPYSnapQueue_Click(object sender, EventArgs e)
-    {
-      var connectionString = ConfigurationManager.ConnectionStrings["AnyRate2CSV.Properties.Settings.ARETHA"].ConnectionString;
+    {      
       SqlConnection con = new SqlConnection(connectionString);
       int rowsAffected = 0;
 
@@ -200,8 +199,7 @@ namespace AnyRate2CSV
     {
       
       var LoginCode = txtExtractCSVLoginCode.Text;
-      var DaysBack = numUpDnExtractCSVDaysBack.Value;
-      var connectionString = ConfigurationManager.ConnectionStrings["AnyRate2CSV.Properties.Settings.ARETHA"].ConnectionString;
+      var DaysBack = numUpDnExtractCSVDaysBack.Value;      
       var sqlQuery = string.Format("dbo.usp_PYRExtractRATES '{0}', {1}", LoginCode, DaysBack);
       int rowsAffected = 0;      
       var outputFolderPlusFileName = txtCSVOutputFile.Text + "\\" + txtFileNameFormat.Text;      

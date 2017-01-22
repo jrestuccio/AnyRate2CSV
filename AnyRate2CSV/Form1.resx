@@ -118,6 +118,29 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnCSVFileOutput.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        R0lGODlhHgATAPcAAP////7+/f38+P368/jqy/TdrfDSle3Hfeq9ZeaxSuOrP/js1P7+/v79+vz15vnq
+        yfbgtPz26e3XrN6lN92jNNuiM9qhMdqgL9mfLeO7bOK7bd2uUNilQNalQtapUty1bPXmx+vZucylW86y
+        fsy0hsq1ksi3mca5o8e8q8fAt8nFwMrIx8rJyMnHxd3Wy+Hg3/39/ezhzcCxmcLBv7y7us3My87NzNHP
+        ztPR0NPS0M/OzMnHxsK/u8W9qsy5kNC0etiyZuGzV+zJhvTt47WplauqqKupp8rIxsPBv7+6s8W5nsu1
+        hc+vb9euWuGuSd+pRdumRtumR9umSO7Yr/n39Kuhj56XiryjbtCsZdqrUN6qRNmjP9WfPtagP9ehQdei
+        Q9eiRtikSNmlSdqmSvr166aeka+WZ9SePdWfP9ahQtahQ9eiRdikSeC4cf///qOgna2RYdKcPNKdPdOd
+        PdOePdagQezUrKGfnq2QXs+aO9CbPNGbPNGcPNWfQNahRdaiR/jy6Jybmq6PWs2YOs6ZOtCaO86ZO9Kd
+        P9KeQ9u0cf39/P39+/z8+piXlrCPVs2YOcyXOMyYO8mWP7mQTLCVaurj1/z8+/z7+fr6+Pn595aVk7GN
+        T8yXOcqVN8mUNsiTNceUOL6PQK6NVauVdKyik8C3rNDGuurl3vr59/v7+fn49vf29My7nbeHM8aSNcaR
+        NsCOObGJR6mPZamahLKqocW7r87CtdTIu9rOwuHXy+3n3/j39ujg07SMSKeJWKaTdqqhlr21rMq/s9DE
+        uNTJvdnOwt3Sx+Taz+je1PDq4/v6+PLw7c/Lx87GvdDIv9TKwdfNw9vRx97UyeHXzOPazubc0ejf1Ovi
+        2Ozk3PPt5vX08enj3Ong1ufd0+Xc0ebd0uje0+7l3vDo4fLq4/Xv6PX18+3q5+/n4O7m3u7m3/Dn4PHp
+        4vPr4/Tt5fXv5vfz6wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        ACH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAADwACwAAAAAHgATAAAI/wABCBxIsKDBgwgTKkz4oICBAwgU
+        KHgwcEDDAQsHSpjAEcMEDBgQtNHCUUQGihkBhBDBhAQJVihQ0KhRg0WNZjWivUgZg0iNmTRrUKsxg0aw
+        JT+AZBGSkQyRIkV+BmNFhEkWLVizSmg6ywolLFc5QtIiiSzZLBgzBjIzYexYSXXixmVTJ0NKAMBkQaoD
+        6ULZvXLrZAlx944jSX4RK/Yrl8zdQL4kSYIkuc7kypIS3QUQaBIkyhc+U6Ycygy2lMsAaPIlGtIrSKF8
+        jQJGo9nphRiXsWr1uVUsWbOCoUiBCxc1bMscKywHgFosX7+ABUtBHFe0GNGw6dq87GazZtHCRx+jRi0G
+        Nu0AUmdcdt58eWzmz2tXjpq9fPm68idXnzAgADs=
+</value>
+  </data>
   <data name="picARLogo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAgEAAAAAAAD/7gAOQWRvYmUAZAAAAAAB/9sAQwAGBAQEBQQGBQUGCQYFBgkLCAYG
