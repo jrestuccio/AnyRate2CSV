@@ -18,47 +18,56 @@ namespace AnyRate2CSV
 
     SqlDataAdapter sda;
     SqlCommandBuilder sb;
-    DataTable dt;    
+    DataTable dt;
+    String connectionString = ConfigurationManager.ConnectionStrings["AnyRate2CSV.Properties.Settings.ARETHA"].ConnectionString;
+
 
     public AnyRate2CSV()
     {
       InitializeComponent();
     }
-    
-    public DataTable GetDataSet(string ConnectionString, string SQL)
+
+
+    private int SQLToCSV(string query, string Filename)
     {
-      
-      DataTable table = new DataTable();
-      using (var con = new SqlConnection(ConnectionString))
-      using (var cmd = new SqlCommand(SQL, con))
-      using (var da = new SqlDataAdapter(cmd))
+
+      SqlConnection conn = new SqlConnection(connectionString);
+      conn.Open();
+      SqlCommand cmd = new SqlCommand(query, conn);
+      SqlDataReader dr = cmd.ExecuteReader();
+      int rowsAffected = 0;      
+
+      using (System.IO.StreamWriter fs = new System.IO.StreamWriter(Filename))
       {
-        MessageBox.Show("test");
-        cmd.CommandType = CommandType.StoredProcedure;
-        da.Fill(table);
+        // Loop through the fields and add headers
+        for (int i = 0; i < dr.FieldCount; i++)
+        {
+          string name = dr.GetName(i);
+          if (name.Contains(","))
+            name = "\"" + name + "\"";
+
+          fs.Write(name + ",");
+        }
+        fs.WriteLine();
+
+        // Loop through the rows and output the data
+        while (dr.Read())
+        {
+          rowsAffected++;
+          for (int i = 0; i < dr.FieldCount; i++)
+          {
+            string value = dr[i].ToString();
+            if (value.Contains(","))
+              value = "\"" + value + "\"";
+
+            fs.Write(value + ",");
+          }
+          fs.WriteLine();
+        }
+
+        fs.Close();
       }
-
-      return table;                
-    }
-
-    public static void WriteDataTable(DataTable sourceTable, TextWriter writer, bool includeHeaders) 
-    {
-        if (includeHeaders) {
-            IEnumerable<String> headerValues = sourceTable.Columns
-                .OfType<DataColumn>()
-                .Select(column => QuoteValue(column.ColumnName));
-                
-            writer.WriteLine(String.Join(",", headerValues));
-        }
-
-        IEnumerable<String> items = null;
-
-        foreach (DataRow row in sourceTable.Rows) {
-            items = row.ItemArray.Select(o => QuoteValue(o.ToString()));
-            writer.WriteLine(String.Join(",", items));
-        }
-
-        writer.Flush();
+      return rowsAffected;
     }
 
     private static string QuoteValue(string value)
@@ -110,8 +119,7 @@ namespace AnyRate2CSV
 
     private void button2_Click(object sender, EventArgs e)
     {
-
-      var connectionString = ConfigurationManager.ConnectionStrings["AnyRate2CSV.Properties.Settings.ARETHA"].ConnectionString;
+      
       SqlConnection con = new SqlConnection(connectionString);
       var spreeNumber = txtPYRCreateQSpreeNum.Text;
       var daysBack = numUpDnPYRCreateQDaysBack.Value;
@@ -139,8 +147,7 @@ namespace AnyRate2CSV
     }
 
     private void btnClearV2Queue_Click(object sender, EventArgs e)
-    {
-      var connectionString = ConfigurationManager.ConnectionStrings["AnyRate2CSV.Properties.Settings.ARETHA"].ConnectionString;      
+    {      
       SqlConnection con = new SqlConnection(connectionString);
       int rowsAffected = 0;
 
@@ -165,8 +172,7 @@ namespace AnyRate2CSV
     }
 
     private void btnPYSnapQueue_Click(object sender, EventArgs e)
-    {
-      var connectionString = ConfigurationManager.ConnectionStrings["AnyRate2CSV.Properties.Settings.ARETHA"].ConnectionString;
+    {      
       SqlConnection con = new SqlConnection(connectionString);
       int rowsAffected = 0;
 
@@ -193,28 +199,14 @@ namespace AnyRate2CSV
     {
       
       var LoginCode = txtExtractCSVLoginCode.Text;
-      var DaysBack = numUpDnExtractCSVDaysBack.Value;
-      var connectionString = ConfigurationManager.ConnectionStrings["AnyRate2CSV.Properties.Settings.ARETHA"].ConnectionString;
+      var DaysBack = numUpDnExtractCSVDaysBack.Value;      
       var sqlQuery = string.Format("dbo.usp_PYRExtractRATES '{0}', {1}", LoginCode, DaysBack);
-      int rowsAffected = 0;
-
-      MessageBox.Show(sqlQuery);      
+      int rowsAffected = 0;      
+      var outputFolderPlusFileName = txtCSVOutputFile.Text + "\\" + txtFileNameFormat.Text;      
 
       try
       {
-        dt = GetDataSet(connectionString, sqlQuery);
-        
-        if (dt != null)
-        {
-          foreach (DataRow dr in dt.Rows)
-          {
-            MessageBox.Show(dr.ToString());
-          }
-        }
-        using (StreamWriter writer = new StreamWriter(txtCSVOutputFile.Text))
-        {
-          WriteDataTable(dt, writer, true);
-        }
+        rowsAffected = SQLToCSV(sqlQuery, outputFolderPlusFileName);        
       }
       catch (Exception ex)
       {
@@ -274,6 +266,11 @@ namespace AnyRate2CSV
     private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
     {
       updatetxtFileNameFormat();
+    }
+
+    private void folderCSVOutput_HelpRequest(object sender, EventArgs e)
+    {
+
     }
 
   }

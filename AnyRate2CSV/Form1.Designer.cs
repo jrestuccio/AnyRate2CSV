@@ -50,21 +50,22 @@
       this.label6 = new System.Windows.Forms.Label();
       this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
       this.grpboxExtractCreateCSV = new System.Windows.Forms.GroupBox();
+      this.lblReportDateExtractCSV = new System.Windows.Forms.Label();
+      this.dateTimeExtractCSV = new System.Windows.Forms.DateTimePicker();
       this.radbtnOtherFormat = new System.Windows.Forms.RadioButton();
-      this.radbtnHSDSFormat = new System.Windows.Forms.RadioButton();
-      this.txtFileNameFormat = new System.Windows.Forms.TextBox();
-      this.radbtnPYRFormat = new System.Windows.Forms.RadioButton();
       this.txtCSVOutputFile = new System.Windows.Forms.TextBox();
       this.btnCSVFileOutput = new System.Windows.Forms.Button();
+      this.radbtnHSDSFormat = new System.Windows.Forms.RadioButton();
       this.numUpDnExtractCSVDaysBack = new System.Windows.Forms.NumericUpDown();
+      this.txtFileNameFormat = new System.Windows.Forms.TextBox();
       this.btnStartExtractReviews = new System.Windows.Forms.Button();
       this.lblExtractCSVDaysBack = new System.Windows.Forms.Label();
+      this.radbtnPYRFormat = new System.Windows.Forms.RadioButton();
       this.txtExtractCSVLoginCode = new System.Windows.Forms.TextBox();
       this.lblExtractCSVLoginCode = new System.Windows.Forms.Label();
       this.picARLogo = new System.Windows.Forms.PictureBox();
       this.txtStatusWindow = new System.Windows.Forms.TextBox();
       this.label1 = new System.Windows.Forms.Label();
-      this.dateTimeExtractCSV = new System.Windows.Forms.DateTimePicker();
       this.folderCSVOutput = new System.Windows.Forms.FolderBrowserDialog();
       this.groupBox1.SuspendLayout();
       this.grpboxPYRCreateQ.SuspendLayout();
@@ -283,6 +284,7 @@
       // 
       // grpboxExtractCreateCSV
       // 
+      this.grpboxExtractCreateCSV.Controls.Add(this.lblReportDateExtractCSV);
       this.grpboxExtractCreateCSV.Controls.Add(this.dateTimeExtractCSV);
       this.grpboxExtractCreateCSV.Controls.Add(this.radbtnOtherFormat);
       this.grpboxExtractCreateCSV.Controls.Add(this.txtCSVOutputFile);
@@ -304,6 +306,25 @@
       this.grpboxExtractCreateCSV.TabStop = false;
       this.grpboxExtractCreateCSV.Text = "Extract and Create CSV";
       // 
+      // lblReportDateExtractCSV
+      // 
+      this.lblReportDateExtractCSV.AutoSize = true;
+      this.lblReportDateExtractCSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(130)))), ((int)(((byte)(0)))));
+      this.lblReportDateExtractCSV.Location = new System.Drawing.Point(20, 79);
+      this.lblReportDateExtractCSV.Name = "lblReportDateExtractCSV";
+      this.lblReportDateExtractCSV.Size = new System.Drawing.Size(65, 13);
+      this.lblReportDateExtractCSV.TabIndex = 23;
+      this.lblReportDateExtractCSV.Text = "Report Date";
+      // 
+      // dateTimeExtractCSV
+      // 
+      this.dateTimeExtractCSV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+      this.dateTimeExtractCSV.Location = new System.Drawing.Point(20, 95);
+      this.dateTimeExtractCSV.Name = "dateTimeExtractCSV";
+      this.dateTimeExtractCSV.Size = new System.Drawing.Size(200, 20);
+      this.dateTimeExtractCSV.TabIndex = 22;
+      this.dateTimeExtractCSV.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+      // 
       // radbtnOtherFormat
       // 
       this.radbtnOtherFormat.AutoSize = true;
@@ -316,6 +337,26 @@
       this.radbtnOtherFormat.UseVisualStyleBackColor = true;
       this.radbtnOtherFormat.CheckedChanged += new System.EventHandler(this.radbtnOtherFormat_CheckedChanged);
       // 
+      // txtCSVOutputFile
+      // 
+      this.txtCSVOutputFile.Location = new System.Drawing.Point(20, 212);
+      this.txtCSVOutputFile.Name = "txtCSVOutputFile";
+      this.txtCSVOutputFile.Size = new System.Drawing.Size(363, 20);
+      this.txtCSVOutputFile.TabIndex = 17;
+      // 
+      // btnCSVFileOutput
+      // 
+      this.btnCSVFileOutput.ForeColor = System.Drawing.Color.DarkBlue;
+      this.btnCSVFileOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnCSVFileOutput.Image")));
+      this.btnCSVFileOutput.Location = new System.Drawing.Point(20, 181);
+      this.btnCSVFileOutput.Name = "btnCSVFileOutput";
+      this.btnCSVFileOutput.Size = new System.Drawing.Size(173, 25);
+      this.btnCSVFileOutput.TabIndex = 16;
+      this.btnCSVFileOutput.Text = "CSV Output File Location";
+      this.btnCSVFileOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+      this.btnCSVFileOutput.UseVisualStyleBackColor = true;
+      this.btnCSVFileOutput.Click += new System.EventHandler(this.button7_Click);
+      // 
       // radbtnHSDSFormat
       // 
       this.radbtnHSDSFormat.AutoSize = true;
@@ -327,45 +368,6 @@
       this.radbtnHSDSFormat.Text = "HSDS Format";
       this.radbtnHSDSFormat.UseVisualStyleBackColor = true;
       this.radbtnHSDSFormat.CheckedChanged += new System.EventHandler(this.radbtnHSDSFormat_CheckedChanged);
-      // 
-      // txtFileNameFormat
-      // 
-      this.txtFileNameFormat.Location = new System.Drawing.Point(20, 149);
-      this.txtFileNameFormat.Name = "txtFileNameFormat";
-      this.txtFileNameFormat.Size = new System.Drawing.Size(363, 20);
-      this.txtFileNameFormat.TabIndex = 19;
-      // 
-      // radbtnPYRFormat
-      // 
-      this.radbtnPYRFormat.AutoSize = true;
-      this.radbtnPYRFormat.Location = new System.Drawing.Point(26, 126);
-      this.radbtnPYRFormat.Name = "radbtnPYRFormat";
-      this.radbtnPYRFormat.Size = new System.Drawing.Size(82, 17);
-      this.radbtnPYRFormat.TabIndex = 18;
-      this.radbtnPYRFormat.TabStop = true;
-      this.radbtnPYRFormat.Text = "PYR Format";
-      this.radbtnPYRFormat.UseVisualStyleBackColor = true;
-      this.radbtnPYRFormat.CheckedChanged += new System.EventHandler(this.radbtnPYRFormat_CheckedChanged);
-      // 
-      // txtCSVOutputFile
-      // 
-      this.txtCSVOutputFile.Location = new System.Drawing.Point(20, 212);
-      this.txtCSVOutputFile.Name = "txtCSVOutputFile";
-      this.txtCSVOutputFile.Size = new System.Drawing.Size(363, 20);
-      this.txtCSVOutputFile.TabIndex = 17;
-      // 
-      // btnCSVFileOutput
-      // 
-      this.btnCSVFileOutput.ForeColor = System.Drawing.Color.DarkBlue;
-      this.btnCSVFileOutput.Image = global::AnyRate2CSV.Properties.Resources.business_folder_icon__Custom___3_;
-      this.btnCSVFileOutput.Location = new System.Drawing.Point(20, 181);
-      this.btnCSVFileOutput.Name = "btnCSVFileOutput";
-      this.btnCSVFileOutput.Size = new System.Drawing.Size(173, 25);
-      this.btnCSVFileOutput.TabIndex = 16;
-      this.btnCSVFileOutput.Text = "CSV Output File Location";
-      this.btnCSVFileOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-      this.btnCSVFileOutput.UseVisualStyleBackColor = true;
-      this.btnCSVFileOutput.Click += new System.EventHandler(this.button7_Click);
       // 
       // numUpDnExtractCSVDaysBack
       // 
@@ -383,6 +385,13 @@
       this.numUpDnExtractCSVDaysBack.Name = "numUpDnExtractCSVDaysBack";
       this.numUpDnExtractCSVDaysBack.Size = new System.Drawing.Size(36, 20);
       this.numUpDnExtractCSVDaysBack.TabIndex = 14;
+      // 
+      // txtFileNameFormat
+      // 
+      this.txtFileNameFormat.Location = new System.Drawing.Point(20, 149);
+      this.txtFileNameFormat.Name = "txtFileNameFormat";
+      this.txtFileNameFormat.Size = new System.Drawing.Size(363, 20);
+      this.txtFileNameFormat.TabIndex = 19;
       // 
       // btnStartExtractReviews
       // 
@@ -403,6 +412,18 @@
       this.lblExtractCSVDaysBack.Size = new System.Drawing.Size(59, 13);
       this.lblExtractCSVDaysBack.TabIndex = 12;
       this.lblExtractCSVDaysBack.Text = "Days Back";
+      // 
+      // radbtnPYRFormat
+      // 
+      this.radbtnPYRFormat.AutoSize = true;
+      this.radbtnPYRFormat.Location = new System.Drawing.Point(26, 126);
+      this.radbtnPYRFormat.Name = "radbtnPYRFormat";
+      this.radbtnPYRFormat.Size = new System.Drawing.Size(82, 17);
+      this.radbtnPYRFormat.TabIndex = 18;
+      this.radbtnPYRFormat.TabStop = true;
+      this.radbtnPYRFormat.Text = "PYR Format";
+      this.radbtnPYRFormat.UseVisualStyleBackColor = true;
+      this.radbtnPYRFormat.CheckedChanged += new System.EventHandler(this.radbtnPYRFormat_CheckedChanged);
       // 
       // txtExtractCSVLoginCode
       // 
@@ -451,14 +472,9 @@
       this.label1.TabIndex = 23;
       this.label1.Text = "Status Window";
       // 
-      // dateTimeExtractCSV
+      // folderCSVOutput
       // 
-      this.dateTimeExtractCSV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-      this.dateTimeExtractCSV.Location = new System.Drawing.Point(20, 87);
-      this.dateTimeExtractCSV.Name = "dateTimeExtractCSV";
-      this.dateTimeExtractCSV.Size = new System.Drawing.Size(200, 20);
-      this.dateTimeExtractCSV.TabIndex = 22;
-      this.dateTimeExtractCSV.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+      this.folderCSVOutput.HelpRequest += new System.EventHandler(this.folderCSVOutput_HelpRequest);
       // 
       // AnyRate2CSV
       // 
@@ -533,6 +549,7 @@
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.DateTimePicker dateTimeExtractCSV;
     private System.Windows.Forms.FolderBrowserDialog folderCSVOutput;
+    private System.Windows.Forms.Label lblReportDateExtractCSV;
   }
 }
 
