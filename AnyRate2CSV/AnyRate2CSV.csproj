@@ -81,9 +81,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -99,11 +104,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -114,10 +114,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\business_folder_icon.gif" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\AnyRateRedesign2011.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\business_folder_icon.gif" />
+    <None Include="Resources\business_folder_icon %28Custom%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\business_folder_icon %28Custom%29 %282%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\business_folder_icon %28Custom%29 %283%29.gif" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

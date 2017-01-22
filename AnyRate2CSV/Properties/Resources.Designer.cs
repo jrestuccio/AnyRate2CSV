@@ -79,5 +79,35 @@ namespace AnyRate2CSV.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap business_folder_icon__Custom_ {
+            get {
+                object obj = ResourceManager.GetObject("business_folder_icon (Custom)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap business_folder_icon__Custom___2_ {
+            get {
+                object obj = ResourceManager.GetObject("business_folder_icon (Custom) (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap business_folder_icon__Custom___3_ {
+            get {
+                object obj = ResourceManager.GetObject("business_folder_icon (Custom) (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
