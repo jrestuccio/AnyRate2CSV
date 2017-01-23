@@ -23,17 +23,6 @@ namespace AnyRate2CSV.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=SQLOLEDB.1;Data Source=216.37.67.51\\ARETHA;Persist Security Info=True;Us" +
-            "er ID=sa;Initial Catalog=trendfxrates")]
-        public string ARETHA {
-            get {
-                return ((string)(this["ARETHA"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -43,6 +32,17 @@ namespace AnyRate2CSV.Properties {
             }
             set {
                 this["btnCSVFileOutput"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=216.37.67.51\\ARETHA;Persist Security Info=True;User ID=sa; Password=w" +
+            "1nds0n!; Initial Catalog=trendfxrates")]
+        public string ARETHA {
+            get {
+                return ((string)(this["ARETHA"]));
             }
         }
     }

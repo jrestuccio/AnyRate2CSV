@@ -402,6 +402,7 @@
       this.btnStartExtractReviews.TabIndex = 13;
       this.btnStartExtractReviews.Text = "Start Extract - Reviews";
       this.btnStartExtractReviews.UseVisualStyleBackColor = true;
+      this.btnStartExtractReviews.Click += new System.EventHandler(this.btnStartExtractReviews_Click);
       // 
       // lblExtractCSVDaysBack
       // 

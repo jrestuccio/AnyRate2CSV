@@ -214,7 +214,7 @@ namespace AnyRate2CSV
       }
       finally
       {        
-        txtStatusWindow.AppendText(string.Format("Extract Complete for: {0}. \n",LoginCode));
+        txtStatusWindow.AppendText(string.Format("Rates Extract Complete for: {0}. \n",LoginCode));
         txtStatusWindow.AppendText(rowsAffected + " searches extracted to CSV.\n");
       }
     }
@@ -270,6 +270,30 @@ namespace AnyRate2CSV
 
     private void folderCSVOutput_HelpRequest(object sender, EventArgs e)
     {
+
+    }
+
+    private void btnStartExtractReviews_Click(object sender, EventArgs e)
+    {
+      var LoginCode = txtExtractCSVLoginCode.Text;
+      var DaysBack = numUpDnExtractCSVDaysBack.Value;
+      var sqlQuery = string.Format("dbo.Usp_PYRExtractReviews  '{0}', {1}", LoginCode, DaysBack);
+      int rowsAffected = 0;
+      var outputFolderPlusFileName = txtCSVOutputFile.Text + "\\" + txtFileNameFormat.Text;
+
+      try
+      {
+        rowsAffected = SQLToCSV(sqlQuery, outputFolderPlusFileName);
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show(ex.Message);
+      }
+      finally
+      {
+        txtStatusWindow.AppendText(string.Format("Reviews Extract Complete for: {0}. \n", LoginCode));
+        txtStatusWindow.AppendText(rowsAffected + " searches extracted to CSV.\n");
+      }
 
     }
 

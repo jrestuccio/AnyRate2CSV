@@ -16,7 +16,7 @@ namespace AnyRate2CSV
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new AnyRate2CSV());
+      Application.Run(new Login());            
     }
   }
 }
