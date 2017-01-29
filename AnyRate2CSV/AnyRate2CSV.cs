@@ -34,12 +34,7 @@ namespace AnyRate2CSV
       Excel.Worksheet oSheet;
       Excel.Workbook oBook;
 
-      SqlConnection conn = new SqlConnection(connectionString);
-      conn.Open();
-      SqlCommand cmd = new SqlCommand(query, conn);
-      SqlDataReader dr = cmd.ExecuteReader();
-      int rowsAffected = 0;      
-
+   
       oApp = new Excel.Application();
       oBook = oApp.Workbooks.Add();
       oSheet = (Excel.Worksheet)oBook.Worksheets.get_Item(1);
