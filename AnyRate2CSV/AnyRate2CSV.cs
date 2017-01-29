@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace AnyRate2CSV
 {
@@ -27,6 +28,60 @@ namespace AnyRate2CSV
       InitializeComponent();
     }
 
+    private int SQLtoXLSX(string query, string Filename)
+    {
+      Excel.Application oApp;
+      Excel.Worksheet oSheet;
+      Excel.Workbook oBook;
+
+      SqlConnection conn = new SqlConnection(connectionString);
+      conn.Open();
+      SqlCommand cmd = new SqlCommand(query, conn);
+      SqlDataReader dr = cmd.ExecuteReader();
+      int rowsAffected = 0;      
+
+      oApp = new Excel.Application();
+      oBook = oApp.Workbooks.Add();
+      oSheet = (Excel.Worksheet)oBook.Worksheets.get_Item(1);
+
+      oSheet.Cells[1, 1] = "Name";
+      oSheet.Cells[1, 2] = "Salary";
+
+      oSheet.Cells[2, 1] = "Frank";
+      oSheet.Cells[2, 2] = 150000;
+      
+      oSheet.Cells[3, 1] = "Ann";
+      oSheet.Cells[3, 2] = 300000;
+
+      Excel.Range oRange = oSheet.Range["A1", "B3"];
+
+      if (oApp.Application.Sheets.Count < 2)
+      {
+        oSheet = (Excel.Worksheet)oBook.Worksheets.Add();
+      }
+      else
+      {
+        oSheet = oApp.Worksheets[2];
+      }
+      oSheet.Name = "Pivot Table";
+
+      Excel.Range oRange2 = oSheet.Cells[1, 1];
+
+      Excel.PivotCache oPivotCache = (Excel.PivotCache)oBook.PivotCaches().Add(Excel.XlPivotTableSourceType.xlDatabase, oRange);      
+      Excel.PivotTable oPivotTable = (Excel.PivotTable)oSheet.PivotTables().Add(PivotCache: oPivotCache, TableDestination:oRange2, TableName: "Summary");
+
+      Excel.PivotField oPivotField = (Excel.PivotField)oPivotTable.PivotFields("Salary");
+      oPivotField.Orientation = Excel.XlPivotFieldOrientation.xlDataField;
+      oPivotField.Function = Excel.XlConsolidationFunction.xlSum;
+      oPivotField.Name ="_Salary";
+
+      // save the file
+      oBook.SaveAs(Filename);
+      oBook.Close();
+      oApp.Quit();
+
+      return 1;
+    }
 
     private int SQLToCSV(string query, string Filename)
     {
@@ -295,6 +350,11 @@ namespace AnyRate2CSV
         txtStatusWindow.AppendText(rowsAffected + " searches extracted to CSV.\n");
       }
 
+    }
+
+    private void button1_Click_1(object sender, EventArgs e)
+    {
+      SQLtoXLSX("test", "H:\\CSV_files_temp\\test.xlsx");
     }
 
   }

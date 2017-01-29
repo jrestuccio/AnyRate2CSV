@@ -67,6 +67,7 @@
       this.txtStatusWindow = new System.Windows.Forms.TextBox();
       this.label1 = new System.Windows.Forms.Label();
       this.folderCSVOutput = new System.Windows.Forms.FolderBrowserDialog();
+      this.btnCreateExcelReport = new System.Windows.Forms.Button();
       this.groupBox1.SuspendLayout();
       this.grpboxPYRCreateQ.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.numUpDnPYRCreateQDaysBack)).BeginInit();
@@ -477,12 +478,24 @@
       // 
       this.folderCSVOutput.HelpRequest += new System.EventHandler(this.folderCSVOutput_HelpRequest);
       // 
+      // btnCreateExcelReport
+      // 
+      this.btnCreateExcelReport.ForeColor = System.Drawing.Color.DarkBlue;
+      this.btnCreateExcelReport.Location = new System.Drawing.Point(434, 233);
+      this.btnCreateExcelReport.Name = "btnCreateExcelReport";
+      this.btnCreateExcelReport.Size = new System.Drawing.Size(130, 23);
+      this.btnCreateExcelReport.TabIndex = 24;
+      this.btnCreateExcelReport.Text = "Create Excel Report";
+      this.btnCreateExcelReport.UseVisualStyleBackColor = true;
+      this.btnCreateExcelReport.Click += new System.EventHandler(this.button1_Click_1);
+      // 
       // AnyRate2CSV
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.DarkGreen;
       this.ClientSize = new System.Drawing.Size(1183, 735);
+      this.Controls.Add(this.btnCreateExcelReport);
       this.Controls.Add(this.label1);
       this.Controls.Add(this.grpboxExtractCreateCSV);
       this.Controls.Add(this.txtStatusWindow);
@@ -551,6 +564,7 @@
     private System.Windows.Forms.DateTimePicker dateTimeExtractCSV;
     private System.Windows.Forms.FolderBrowserDialog folderCSVOutput;
     private System.Windows.Forms.Label lblReportDateExtractCSV;
+    private System.Windows.Forms.Button btnCreateExcelReport;
   }
 }
 
